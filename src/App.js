@@ -89,9 +89,10 @@ export default function App() {
       return;
     }
     const res = await fetch(
-      `https://api.exchangeratesapi.io/latest?base=${fromCurrency}`
+      `https://api.exchangeratesapi.io/latest?symbols=${toCurrency}&base=${fromCurrency}`
     );
     const { rates } = await res.json();
+    console.log(rates);
     setResult(+value * rates[toCurrency]);
   };
 
